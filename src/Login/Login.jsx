@@ -48,7 +48,7 @@ const Login = () => {
       <h2 className="title">WaterWise</h2>
 
       <form onSubmit={submit}>
-        {NewUser && (
+       {/** {NewUser && (
           <div className="username">
             <input
               onChange={(e) => setusername(e.target.value)}
@@ -58,7 +58,7 @@ const Login = () => {
             />
             <label htmlFor="username">Username</label>
           </div>
-        )}
+        )}*/} 
 
         <div className="email">
           <input
@@ -79,14 +79,14 @@ const Login = () => {
           />
           <label htmlFor="password">Password</label>
         </div>
-        {error && <span className="error">Process Failed</span>}
+        {error && <span className="error"></span>}
         {error && <span className="error">{Errormsg}</span>}
 
         <button type="submit">{NewUser ? "Sign Up" : "Log In"}</button>
 
         {NewUser ? (
           <span className="user-stat">
-            Already have an account?{" "}
+            Already have?{" "}
             <b
               onClick={() => {
                 setNewUser(false);
@@ -98,7 +98,7 @@ const Login = () => {
           </span>
         ) : (
           <span className="user-stat">
-            Dont't have an account?{" "}
+            Dont't have?{" "}
             <b
               onClick={() => {
                 setNewUser(true);
