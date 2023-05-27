@@ -8,7 +8,6 @@ import { MdSwapHoriz } from "react-icons/md";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../ThemeContext";
 import { NavLink } from "react-router-dom";
-
 import { signOut } from "firebase/auth";
 import { auth } from "../../Firebase";
 import { HiOutlineLogout } from "react-icons/hi";
