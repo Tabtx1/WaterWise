@@ -38,14 +38,7 @@ const Navigation = () => {
 
   return (
     <div className={`navigation ${nav && "active"} ${DarkTheme && "dark"}`}>
-      <div
-        className={`menu ${nav && "active"}`}
-        onClick={() => {
-          setnav((prevState) => !prevState);
-        }}
-      >
-        <FiChevronLeft className="menu-icon" />
-      </div>
+      
       <header>
         <div className="profile">
           <FiUser className="profile-img" />
@@ -55,6 +48,17 @@ const Navigation = () => {
       <NavLink to="/">
         <Nav Icon={TbDashboard} title={"Dashboard"} />
       </NavLink>
+
+      <div
+        className={`menu ${nav && "active"}`}
+        onClick={() => {
+          setnav((prevState) => !prevState);
+        }}
+      >
+        <FiChevronLeft className="menu-icon" />
+      </div>
+
+
       
       <div className="divider"></div>
 
