@@ -37,7 +37,7 @@ const Navigation = () => {
   }, []);
 
   return (
-    <div className={`navigation ${nav && "active"} ${DarkTheme && "dark"}`}>
+    <div id="close-up" className={`navigation ${nav && "active"} ${DarkTheme && "dark"}`}>
       
       <header>
         <div className="profile">
@@ -49,6 +49,19 @@ const Navigation = () => {
         <Nav Icon={TbDashboard} title={"Dashboard"} />
       </NavLink>
 
+       
+      {/**<div className="divider"></div>
+
+     <div className="divider"></div>*/}
+      
+     {/** <Nav
+        Icon={MdSwapHoriz}
+        title={`${
+          DarkTheme ? "Switch to Light Theme" : "Switch to Dark Theme"
+        }`}
+        onClick={changeTheme}
+      />*/} 
+
       <div
         className={`menu ${nav && "active"}`}
         onClick={() => {
@@ -58,18 +71,7 @@ const Navigation = () => {
         <FiChevronLeft className="menu-icon" />
       </div>
 
-
       
-      <div className="divider"></div>
-
-      <div className="divider"></div>
-      <Nav
-        Icon={MdSwapHoriz}
-        title={`${
-          DarkTheme ? "Switch to Light Theme" : "Switch to Dark Theme"
-        }`}
-        onClick={changeTheme}
-      />
       <div className="Log-out" >
       <Nav Icon={HiOutlineLogout} title={"Log Out"} onClick={logout} />
       </div>
