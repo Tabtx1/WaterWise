@@ -44,10 +44,10 @@ const Navigation = () => {
         </div>
         <span>{} </span>
       </header>
-      <NavLink to="/">
+      <NavLink className="Circuit" to="/">
         <Nav Icon={VscCircuitBoard} title={"Dashboard"} />
       </NavLink>
-
+      <div className="divider"></div>
        
       {/**<div className="divider"></div>
 
@@ -67,7 +67,7 @@ const Navigation = () => {
           setnav((prevState) => !prevState);
         }}
       >
-        <FiChevronLeft className="menu-icon" />
+       {/**  <FiChevronLeft className="menu-icon" /> */}
       </div>
 
       
