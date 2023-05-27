@@ -14,7 +14,7 @@ import { getDatabase } from "@firebase/database";
     messagingSenderId: "582930981604",
     appId: "1:582930981604:web:cc326e92abd6fd5d3a02f1"
   };
-
+  
   /// Initialize Firebase
 export default initializeApp(firebaseConfig);
 export const analytics = getAnalytics();
