@@ -45,7 +45,7 @@ const Login = () => {
   return (
     <div className="login-page">
       <img className="logo" src={waterwise} alt="Logo" />
-      <h2 className="title">Water Wise</h2>
+      <h2 className="title">WaterWise</h2>
 
       <form onSubmit={submit}>
         {NewUser && (
