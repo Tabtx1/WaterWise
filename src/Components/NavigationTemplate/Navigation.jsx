@@ -37,7 +37,7 @@ const Navigation = () => {
   }, []);
 
   return (
-    <div id="close-up" className={`navigation ${nav && "active"} ${DarkTheme && "dark"}`}>
+    <div id="close-up" className={`navigation ${nav && "active"} `}>
       
       <header>
         <div className="profile">
