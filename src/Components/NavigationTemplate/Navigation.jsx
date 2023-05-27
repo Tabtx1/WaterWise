@@ -3,6 +3,7 @@ import "./Navigation.css";
 import { FiChevronLeft, FiBell } from "react-icons/fi";
 import { TbDashboard, TbFileUpload, TbFilePencil } from "react-icons/tb";
 import { FiUser } from "react-icons/fi";
+import { IoIosPerson } from "react-icons/io";
 import { MdSwapHoriz } from "react-icons/md";
 import { VscCircuitBoard } from "react-icons/vsc";
 import { useContext, useEffect, useState } from "react";
@@ -40,7 +41,7 @@ const Navigation = () => {
       
       <header>
         <div className="profile">
-          <FiUser className="profile-img" />
+          <IoIosPerson className="profile-img" />
         </div>
         <span>{} </span>
       </header>
