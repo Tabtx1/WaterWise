@@ -1,0 +1,33 @@
+.nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 25px 25px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .nav:hover {
+    background-color: rgba(255, 255, 255, 0.158);
+  }
+  
+  h2 {
+    font-size: 11px;
+    font-family: "Inter", sans-serif;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+  }
+  
+  .navigation.active h2 {
+    text-decoration: none;
+    display: none;
+  }
+  
+  .icon {
+    font-size: 17px;
+  }
