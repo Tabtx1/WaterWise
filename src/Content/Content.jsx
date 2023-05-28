@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Content.css";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const Content = () => {
   const [data, setData] = useState([]);
@@ -72,6 +72,40 @@ useEffect(() => {
   );
 
   return (
+    <div className="content">
+      <h2 id="chart"></h2>
+      <div className="chart-container">
+        <LineChart width={500} height={300} data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="moisture" stroke="#8884d8" />
+        </LineChart>
+      </div>
+  
+      <h2 id="chart"></h2>
+      <div className="chart-container">
+        <LineChart width={500} height={300} data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="waterVolume" stroke="#82ca9d" />
+        </LineChart>
+      </div>
+    </div>
+  );
+
+
+
+
+
+
+
+  {/**return (
    
     <div className="content">
       <h2 id="chart">Moisture</h2>
@@ -83,7 +117,11 @@ useEffect(() => {
 
     
 
-);
+  ); */}
+
+
+
+
 };
 
 
