@@ -4,6 +4,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'r
 
 const Content = () => {
   const [data, setData] = useState([]);
+  const data2 = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}];
   {/**const [moist, setMoist] = useState("");
 
  //getting all temp and humid data
@@ -46,11 +47,23 @@ useEffect(() => {
   if (date) {
     getCurrentTemp();
   }
-}, [date]); */}
+}, [date]); 
 
 
 
-   useEffect(() => {
+   {/** useEffect(() => {
+    // Fetch data or set your data source
+    const fetchData = async () => {
+      // Example: Fetch data from an API
+      const response = await fetch("https://api.example.com/data");
+      const fetchedData = await response.json();
+      setData(fetchedData);
+    };
+
+    fetchData();
+  }, []); */}
+
+  useEffect(() => {
     // Fetch data or set your data source
     const fetchData = async () => {
       // Example: Fetch data from an API
@@ -63,16 +76,17 @@ useEffect(() => {
   }, []);
 
   const renderLineChart = (
-    <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+    <LineChart width={400} height={400} data={data2}>
       <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-      <XAxis dataKey="name" />
-      <YAxis />
     </LineChart>
   );
 
   return (
     <div className="content">
+      <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+      <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+      <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+      <script src="https://unpkg.com/recharts/umd/Recharts.js"></script>
       <h2 id="chart"></h2>
       <div className="chart-container">
         <LineChart width={500} height={300} data={data}>
@@ -98,12 +112,6 @@ useEffect(() => {
       </div>
     </div>
   );
-
-
-
-
-
-
 
   {/**return (
    
