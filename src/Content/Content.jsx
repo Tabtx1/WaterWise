@@ -1,10 +1,18 @@
 import { useState, useEffect } from "react";
 import "./Content.css";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Area, Bar, ComposedChart} from "recharts";
+import { Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const Content = () => {
   const [data, setData] = useState([]);
-  const data2 = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}];
+  const data2 = [
+    {name: 'Page A', uv: 340, pv: 1400, amt: 2200},
+    {name: 'Page A', uv: 230, pv: 1200, amt: 1900},
+    {name: 'Page A', uv: 430, pv: 1100, amt: 2000},
+    {name: 'Page A', uv: 250, pv: 900, amt: 1980},
+    {name: 'Page A', uv: 300, pv: 590, amt: 1540},
+    {name: 'Page A', uv: 200, pv: 650, amt: 1245},
+  ];
   {/**const [moist, setMoist] = useState("");
 
  //getting all temp and humid data
@@ -61,15 +69,16 @@ useEffect(() => {
     };
 
     fetchData();
-  }, []); */}
+  }, []); 
 
   useEffect(() => {
     // Fetch data or set your data source
     const fetchData = async () => {
       // Example: Fetch data from an API
-      const response = await fetch("https://api.example.com/data");
-      const fetchedData = await response.json();
-      setData(fetchedData);
+      const response = await fetch("https://api.coincap.io/v2/assets/?limits=10");
+      const data = await response.json();
+      console.log(data);
+      setData(data.data);
     };
 
     fetchData();
@@ -79,7 +88,7 @@ useEffect(() => {
     <LineChart width={400} height={400} data={data2}>
       <Line type="monotone" dataKey="uv" stroke="#8884d8" />
     </LineChart>
-  );
+  );*/}
 
   return (
     <div className="content">
@@ -87,28 +96,39 @@ useEffect(() => {
       <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
       <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
       <script src="https://unpkg.com/recharts/umd/Recharts.js"></script>
-      <h2 id="chart"></h2>
-      <div className="chart-container">
-        <LineChart width={500} height={300} data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="moisture" stroke="#8884d8" />
-        </LineChart>
+      
+      <dev>
+
+
+      </dev>
+      
+      <h2 id="chart">mositure</h2>
+      <div className="chartcontainer">
+      <ComposedChart width={730} height={250} data={data2}>
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <CartesianGrid stroke="#f5f5f5" />
+      <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
+      <Bar dataKey="pv" barSize={20} fill="#413ea0" />
+      <Line type="monotone" dataKey="uv" stroke="#ff7300" />
+      </ComposedChart>
       </div>
   
-      <h2 id="chart"></h2>
-      <div className="chart-container">
-        <LineChart width={500} height={300} data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="waterVolume" stroke="#82ca9d" />
-        </LineChart>
+  
+      <h2 id="chart">waterVolume</h2>
+      <div className="chartcontainer">
+      <LineChart width={730} height={250} data={data2}
+      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Line type="monotone" dataKey="pv" stroke="#8884d8" />
+      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+    </LineChart>
       </div>
     </div>
   );
