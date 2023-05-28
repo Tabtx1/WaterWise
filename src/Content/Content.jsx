@@ -102,7 +102,7 @@ useEffect(() => {
 
       </dev>
       
-      <h2 id="chart">mositure</h2>
+      <h2 id="chart">moisture</h2>
       <div className="chartcontainer">
       <ComposedChart width={730} height={250} data={data2}>
       <XAxis dataKey="name" />
