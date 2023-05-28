@@ -4,8 +4,53 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 
 const Content = () => {
   const [data, setData] = useState([]);
+  {/**const [moist, setMoist] = useState("");
 
-  useEffect(() => {
+ //getting all temp and humid data
+ const fetchTemperatureAndHumidity = async (date) => {
+  const realtimeDB = getDatabase();
+  const getDateOnTemp = ref(realtimeDB, date);
+  return new Promise((resolve, reject) => {
+    onValue(
+      getDateOnTemp,
+      (snapshot) => {
+        if (snapshot.exists()) {
+          let moisture;
+          snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val();
+            moisture = childData.Moist;
+            
+          });
+          resolve({ moisture });
+
+          setMoist(moisture);
+        } else {
+          console.log("No child nodes found.");
+          reject(new Error("No child nodes found."));
+        }
+      },
+      {
+        onlyLast: true,
+      }
+    );
+  });
+};
+//getting current readings
+useEffect(() => {
+  const getCurrentTemp = async () => {
+    const { moisture } = await fetchTemperatureAndHumidity(date);
+    setMoist(moisture);
+    
+  };
+
+  if (date) {
+    getCurrentTemp();
+  }
+}, [date]); */}
+
+
+
+   useEffect(() => {
     // Fetch data or set your data source
     const fetchData = async () => {
       // Example: Fetch data from an API
@@ -27,6 +72,7 @@ const Content = () => {
   );
 
   return (
+   
     <div className="content">
       <h2 id="chart">Moisture</h2>
       <div className="chart-container">{renderLineChart}</div>
@@ -35,9 +81,11 @@ const Content = () => {
       <div className="chart-container">{renderLineChart}</div>
     </div>
 
+    
 
-  );
-
+);
 };
+
+
 
 export default Content;
